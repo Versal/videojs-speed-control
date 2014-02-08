@@ -8,52 +8,26 @@
 
 (function(vjs) {
 
-  var
-    /**
-     * Copies properties from one or more objects onto an original.
-     */
-    extend = function(obj /*, arg1, arg2, ... */) {
-      var arg, i, k;
-      for (i = 1; i < arguments.length; i++) {
-        arg = arguments[i];
-        for (k in arg) {
-          if (arg.hasOwnProperty(k)) {
-            obj[k] = arg[k];
-          }
-        }
-      }
-      return obj;
-    },
+  /**
+   * Construct the speed control
+   * @constructor
+   * @param {Object} player reference to video player
+   * @param {Object} options passed in from plugin initialization
+   */
+  vjs.SpeedControl = vjs.MenuItem.extend({
+    init: function(player, options) {
+      var speedSelect = document.createElement('select');
 
-    // define some reasonable defaults for this sweet plugin
-    defaults = {
-      awesome: true
-    },
+      vjs.MenuItem.call(this, player, options);
+      this.player().el().appendChild(speedSelect);
+    }
+  });
 
-    // plugin initializer
-    speed-control = function(options) {
-      var
-        // save a reference to the player instance
-        player = this,
+  function speedControl(options) {
+    var opts = options || {};
 
-        // merge options and defaults
-        settings = extend({}, defaults, options || {});
+    return new vjs.SpeedControl(this, opts);
+  }
 
-      // replace the initializer with the plugin functionality
-      player.speed-control = {
-        go: function() {
-          if (settings.awesome) {
-            return 'awesome.';
-          }
-          return ':(';
-        },
-        extreme: function() {
-          return 'awesome!';
-        }
-      };
-    };
-  
-  // register the plugin with video.js
-  vjs.plugin('speed-control', speed-control);
-
+  vjs.plugin('speedControl', speedControl);
 }(window.videojs));

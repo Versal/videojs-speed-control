@@ -1,21 +1,15 @@
 <!doctype html>
 <html>
 <head><title>Speed control Plugin Example</title></head>
-<style>
-.example-description {
-  background-color: #ddd;
-  border: thin solid #333;
-  padding: 5px;
-}
-</style>
-<link rel="stylesheet" href="libs/video-js-4.1.0/video-js.css">
-<script src="libs/video-js-4.1.0/video.js"></script>
+<link rel="stylesheet" href="styles/example.css"/>
+<link href="//vjs.zencdn.net/4.2/video-js.css" rel="stylesheet">
+<script src="//vjs.zencdn.net/4.2/video.js"></script>
 <body>
 <p class="example-description">
   You can see a player configured with the Speed control plugin below. Check out
   the page source to see an example of how to configure the plugin yourself.
 </p>
-<video class="video-js vjs-default-skin" src="http://vjs.zencdn.net/v/oceans.mp4" data-setup="{}" controls></video>
+<video class="video-js vjs-default-skin" width="640" height="480" src="http://vjs.zencdn.net/v/oceans.mp4" data-setup="{}" controls></video>
 
 <script src="src/videojs.speed-control.js"></script>
 <!-- 
@@ -23,19 +17,19 @@
   the head of the document but you still need to configure and initialize the
   plugin.
 -->
-<script>
-var
+<script type="text/javascript">
 
   // save a reference to the video element
-  video = document.querySelector('video'),
+  var video = document.querySelector('video');
 
-  // save a reference to the video.js player for that element
-  player = videojs(video);
-
-  // initialize the plugin with some custom options:
-  player.speed-control({
-    customOption: false
+  videojs(video, {
+    plugins: {
+      speedControl: {
+        speeds: [0.25, 0.5, 0.75, 1.0, 1.5]
+      }
+    }
   });
+
 </script>
 </body>
 </html>
