@@ -69,7 +69,7 @@
           newRate = e.target.options[index].value;
 
       // player.M === direct way to access <video>
-      this.M.playbackRate = newRate;
+      return this.M.playbackRate = newRate;
     }.bind(player);
   }
 
