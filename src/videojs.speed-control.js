@@ -45,8 +45,7 @@
       // make 1.0x the default speed
       if (speeds[speed] === 1) {
         resultHTML += '<option value="' + speeds[speed] + '"' +
-          'selected="selected">' +
-          '1.0x</option>';
+          'selected="selected">1.0x</option>';
       } else {
         resultHTML += '<option value="' + speeds[speed] + '"' +
           '>' + speeds[speed] + 'x</option>';
