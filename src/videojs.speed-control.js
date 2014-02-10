@@ -41,14 +41,14 @@
     var speeds = [0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75],
         resultHTML = '<select class="vjs-speed-select">';
 
-    for (var speed in speeds) {
+    for (var i in speeds) {
       // make 1.0x the default speed
-      if (speeds[speed] === 1) {
-        resultHTML += '<option value="' + speeds[speed] + '"' +
+      if (speeds[i] === 1) {
+        resultHTML += '<option value="' + speeds[i] + '"' +
           'selected="selected">1.0x</option>';
       } else {
-        resultHTML += '<option value="' + speeds[speed] + '"' +
-          '>' + speeds[speed] + 'x</option>';
+        resultHTML += '<option value="' + speeds[i] + '"' +
+          '>' + speeds[i] + 'x</option>';
       }
     }
 
