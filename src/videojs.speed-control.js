@@ -46,7 +46,7 @@
       if (speeds[speed] === 1) {
         resultHTML += '<option value="' + speeds[speed] + '"' +
           'selected="selected">' +
-          speeds[speed] + '.0x</option>';
+          '1.0x</option>';
       } else {
         resultHTML += '<option value="' + speeds[speed] + '"' +
           '>' + speeds[speed] + 'x</option>';
